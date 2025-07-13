@@ -18,13 +18,16 @@ library(testthat)
 pkgload::load_all(export_all = FALSE)
 ```
 
-
+# install_packages_not_installed (internal)
+    
 ```{r function-install_packages_not_installed}
 #' Install packages not installed if needed
 #'
-#' Install all the packages which are not installed
+#' Install all the packages which are not installed.
+#' 
 #' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
 #' @return nothing
+#' 
 #' @noRd
 #' @keywords internal
 install_packages_not_installed <- function(pkgs) {
@@ -37,12 +40,14 @@ install_packages_not_installed <- function(pkgs) {
 }
 ```
 
-
+# load_packages (internal)
+    
 ```{r function-load_packages}
 #' Load packages
 #' 
 #' Load all the packages
 #' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
+#' 
 #' @return nothing
 #' @noRd
 #' @keywords internal
@@ -70,7 +75,7 @@ load_packages <- function(pkgs) {
 #' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
 #' @importFrom utils install.packages installed.packages
 #' @return nothing
-#' 
+#'
 #' @export
 #'
 install_packages_if_needed_and_load <- function(pkgs) {
@@ -124,6 +129,7 @@ test_that("pkg_test_internal_functions works", {
 })
 ```
   
+
 ```{r development-inflate, eval=FALSE}
 # Run but keep eval=FALSE to avoid infinite loop
 # Execute in the console directly

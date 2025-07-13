@@ -4,6 +4,7 @@ flat_packages_management.Rmd:
   R:
   - R/install_packages_if_needed_and_load.R
   - R/install_packages_not_installed.R
+  - R/load_packages.R
   - R/pkg_test_internal_functions.R
   tests:
   - tests/testthat/test-install_packages_if_needed_and_load.R

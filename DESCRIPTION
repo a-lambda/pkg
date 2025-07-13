@@ -5,8 +5,6 @@ Authors@R:
     person("Alain", "Corvisier", , "alain.corvisier@pronton.me", role = c("aut", "cre"))
 Description: useful functions to play for managing packaes.
 License: MIT + file LICENSE
-URL: https://github.com/a-lambda/pkg
-BugReports: https://github.com/a-lambda/pkg/issues
 Imports: 
     utils
 Suggests: 

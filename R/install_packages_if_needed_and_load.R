@@ -9,7 +9,7 @@
 #' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
 #' @importFrom utils install.packages installed.packages
 #' @return nothing
-#' 
+#'
 #' @export
 #'
 #' @examples
