@@ -1,0 +1,19 @@
+Package: pkg
+Title: Package Management File
+Version: 0.0.0.9000
+Authors@R: 
+    person("Alain", "Corvisier", , "alain.corvisier@pronton.me", role = c("aut", "cre"))
+Description: useful functions to play for managing packaes.
+License: MIT + file LICENSE
+Imports: 
+    utils
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: 
+    knitr
+Config/fusen/version: 0.7.1
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2

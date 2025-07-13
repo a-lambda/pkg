@@ -1,0 +1,128 @@
+---
+title: "flat_install_packages_if_needed_and_load.Rmd"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r development, include=FALSE}
+library(testthat)
+```
+
+<!--
+ You need to run the 'description' chunk in the '0-dev_history.Rmd' file before continuing your code there.
+-->
+
+```{r development-load}
+# Load already included functions if relevant
+pkgload::load_all(export_all = FALSE)
+```
+
+# install packages (if needed) and load them
+    
+```{r development-install_packages_if_needed_and_load}
+# You can prepare the code of the install_packages_if_needed_and_load() function here
+```
+
+```{r function-install_packages_if_needed_and_load}
+
+#' Install package if needed and load
+#' 
+#' Install all the non installed packages among a vector of package names
+#' and load them all.
+#' 
+#' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
+#' @importFrom utils install.packages installed.packages
+#' @returns nothing
+#' 
+#' @export
+#'
+#'
+
+install_packages_if_needed_and_load <- function(pkgs) {
+  
+  install_packages_not_installed(pkgs)
+  load_packages(pkgs)
+  
+}
+
+#' Install packages not installed if needed
+#'
+#' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
+#'
+#' @returns nothing
+#' @noRd
+#' @keywords internal
+install_packages_not_installed <- function(pkgs) {
+
+  pkgs_not_installed <- 
+    pkgs[!(pkgs %in% rownames(installed.packages()))]
+  install.packages(pkgs_not_installed,
+                   repos = "https://mirror.ibcp.fr/pub/CRAN/")
+
+}
+
+#' Load packages
+#' 
+#' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
+#'
+#' @returns nothing
+#' @noRd
+#' @keywords internal
+load_packages <- function(pkgs) {
+
+  invisible(lapply(pkgs, FUN = library, character.only = TRUE))
+
+}
+
+```
+  
+```{r example-install_packages_if_needed_and_load}
+install_packages_if_needed_and_load(c("rlang", "lobstr"))
+```
+  
+```{r tests-install_packages_if_needed_and_load}
+test_that("install_packages_if_needed_and_load works", {
+  expect_true(inherits(install_packages_if_needed_and_load, "function")) 
+})
+```
+
+# pkg_test_internal_functions
+    
+```{r development-pkg_test_internal_functions}
+# You can prepare the code of the pkg_test_internal_functions() function here
+```
+  
+```{r function-pkg_test_internal_functions}
+#' Test d'usage des fonctions internes
+#' 
+#' Teste l'usage des fonctions internes définies dans le chunk de définition de la fonction install_packages_if_needed and load
+#' 
+#' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
+#'
+#' @return nothing
+#' 
+#' @export
+pkg_test_internal_functions <- function(pkgs){
+    load_packages(pkgs)
+}
+```
+  
+```{r example-pkg_test_internal_functions}
+pkg_test_internal_functions("lobstr")
+```
+  
+```{r tests-pkg_test_internal_functions}
+test_that("pkg_test_internal_functions works", {
+  expect_true(inherits(pkg_test_internal_functions, "function")) 
+})
+```
+  
+
+  
+
+```{r development-inflate, eval=FALSE}
+# Run but keep eval=FALSE to avoid infinite loop
+# Execute in the console directly
+fusen::inflate(flat_file = "dev/flat_install_packages_if_needed_and_load.Rmd", vignette_name = "package install if needed and load")
+```
