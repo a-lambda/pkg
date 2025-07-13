@@ -1,19 +1,20 @@
-flat_install_packages_if_needed_and_load.Rmd:
-  path: dev/flat_install_packages_if_needed_and_load.Rmd
+flat_packages_management.Rmd:
+  path: dev/flat_packages_management.Rmd
   state: active
   R:
   - R/install_packages_if_needed_and_load.R
+  - R/install_packages_not_installed.R
   - R/pkg_test_internal_functions.R
   tests:
   - tests/testthat/test-install_packages_if_needed_and_load.R
   - tests/testthat/test-pkg_test_internal_functions.R
-  vignettes: vignettes/package-install-if-needed-and-load.Rmd
+  vignettes: vignettes/packages_management.Rmd
   inflate:
-    flat_file: dev/flat_install_packages_if_needed_and_load.Rmd
-    vignette_name: package install if needed and load
+    flat_file: dev/flat_packages_management.Rmd
+    vignette_name: packages_management
     open_vignette: true
     check: true
     document: true
-    overwrite: ask
-    clean: ask
+    overwrite: 'yes'
+    clean: true
     codecov: false

@@ -1,5 +1,5 @@
 ---
-title: "flat_install_packages_if_needed_and_load.Rmd"
+title: "flat_packages_management.Rmd"
 output: html_document
 editor_options: 
   chunk_output_type: console
@@ -18,6 +18,42 @@ library(testthat)
 pkgload::load_all(export_all = FALSE)
 ```
 
+
+```{r function-install_packages_not_installed}
+#' Install packages not installed if needed
+#'
+#' Install all the packages which are not installed
+#' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
+#' @return nothing
+#' @noRd
+#' @keywords internal
+install_packages_not_installed <- function(pkgs) {
+
+  pkgs_not_installed <- 
+    pkgs[!(pkgs %in% rownames(installed.packages()))]
+  install.packages(pkgs_not_installed,
+                   repos = "https://mirror.ibcp.fr/pub/CRAN/")
+
+}
+```
+
+
+```{r function-load_packages}
+#' Load packages
+#' 
+#' Load all the packages
+#' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
+#' @return nothing
+#' @noRd
+#' @keywords internal
+load_packages <- function(pkgs) {
+
+  invisible(lapply(pkgs, FUN = library, character.only = TRUE))
+
+}
+```
+
+
 # install packages (if needed) and load them
     
 ```{r development-install_packages_if_needed_and_load}
@@ -33,46 +69,15 @@ pkgload::load_all(export_all = FALSE)
 #' 
 #' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
 #' @importFrom utils install.packages installed.packages
-#' @returns nothing
+#' @return nothing
 #' 
 #' @export
 #'
-#'
-
 install_packages_if_needed_and_load <- function(pkgs) {
   
   install_packages_not_installed(pkgs)
   load_packages(pkgs)
   
-}
-
-#' Install packages not installed if needed
-#'
-#' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
-#'
-#' @returns nothing
-#' @noRd
-#' @keywords internal
-install_packages_not_installed <- function(pkgs) {
-
-  pkgs_not_installed <- 
-    pkgs[!(pkgs %in% rownames(installed.packages()))]
-  install.packages(pkgs_not_installed,
-                   repos = "https://mirror.ibcp.fr/pub/CRAN/")
-
-}
-
-#' Load packages
-#' 
-#' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
-#'
-#' @returns nothing
-#' @noRd
-#' @keywords internal
-load_packages <- function(pkgs) {
-
-  invisible(lapply(pkgs, FUN = library, character.only = TRUE))
-
 }
 
 ```
@@ -103,6 +108,7 @@ test_that("install_packages_if_needed_and_load works", {
 #' @return nothing
 #' 
 #' @export
+#' 
 pkg_test_internal_functions <- function(pkgs){
     load_packages(pkgs)
 }
@@ -118,11 +124,11 @@ test_that("pkg_test_internal_functions works", {
 })
 ```
   
-
-  
-
 ```{r development-inflate, eval=FALSE}
 # Run but keep eval=FALSE to avoid infinite loop
 # Execute in the console directly
-fusen::inflate(flat_file = "dev/flat_install_packages_if_needed_and_load.Rmd", vignette_name = "package install if needed and load")
+fusen::inflate(flat_file = "dev/flat_packages_management.Rmd",
+               overwrite = TRUE,
+               clean = TRUE,
+               vignette_name = "packages_management")
 ```
