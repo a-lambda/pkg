@@ -131,3 +131,10 @@ devtools::build(vignettes = TRUE)
 fusen::init_share_on_github()
 ```
 
+### Code Coverage
+
+```{r}
+covr::package_coverage()
+covr::report()
+```
+
