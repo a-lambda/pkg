@@ -10,10 +10,10 @@ install_packages_if_needed_and_load(pkgs)
 \item{pkgs}{character vector of the names of packages whose current versions should be downloaded from the repositories.}
 }
 \value{
-nothing
+invisible NULL.
 }
 \description{
-Install all the non installed packages among a vector of package names
+Install all the non installed packages from a vector of package names
 and load them all.
 }
 \examples{

@@ -10,7 +10,7 @@ pkg_test_internal_functions(pkgs)
 \item{pkgs}{character vector of the names of packages whose current versions should be downloaded from the repositories.}
 }
 \value{
-nothing
+invisible NULL.
 }
 \description{
 Teste l'usage des fonctions internes définies dans le chunk de définition de la fonction install_packages_if_needed and load

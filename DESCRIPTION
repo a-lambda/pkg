@@ -3,7 +3,7 @@ Title: Package Management File
 Version: 0.0.0.9000
 Authors@R: 
     person("Alain", "Corvisier", , "alain.corvisier@pronton.me", role = c("aut", "cre"))
-Description: useful functions to play for managing packaes.
+Description: Useful functions to play for managing packages.
 License: MIT + file LICENSE
 Imports: 
     utils

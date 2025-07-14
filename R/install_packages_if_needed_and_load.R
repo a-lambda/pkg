@@ -3,12 +3,12 @@
 
 #' Install package if needed and load
 #' 
-#' Install all the non installed packages among a vector of package names
+#' Install all the non installed packages from a vector of package names
 #' and load them all.
 #' 
 #' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
 #' @importFrom utils install.packages installed.packages
-#' @return nothing
+#' @return invisible NULL.
 #'
 #' @export
 #'

@@ -17,11 +17,12 @@ fusen::fill_description(
   pkg = here::here(),
   fields = list(
     Title = "Package Management File",
-    Description = "useful functions to play for managing packaes.",
+    Description = "Useful functions to play for managing packages.",
     `Authors@R` = c(
       person("Alain", "Corvisier", email = "alain.corvisier@pronton.me", role = c("aut", "cre"))
     )
-  )
+  ),
+  overwrite = TRUE
 )
 # Define License with use_*_license()
 usethis::use_mit_license("Alain Corvisier")
@@ -119,7 +120,7 @@ fusen::draw_package_structure()
 ```{r, eval=FALSE}
 # set and try pkgdown documentation website locally
 usethis::use_pkgdown()
-pkgdown::build_site()
+pkgdown::build_site(override = list(destination = "inst/site"))
 
 # build the tar.gz with vignettes to share with others
 devtools::build(vignettes = TRUE)

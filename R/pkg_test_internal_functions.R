@@ -6,7 +6,7 @@
 #' 
 #' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
 #'
-#' @return nothing
+#' @return invisible NULL.
 #' 
 #' @export
 #' 
