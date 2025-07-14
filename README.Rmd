@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/a-lambda/pkg/graph/badge.svg)](https://app.codecov.io/gh/a-lambda/pkg)
 <!-- badges: end -->
 
-The goal of pkg is to ...
+The goal of pkg is to test package creation ... with some functions
 
 ## Installation
 
