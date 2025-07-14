@@ -31,7 +31,7 @@ pkgload::load_all(export_all = FALSE)
 #' @noRd
 #' @keywords internal
 install_packages_not_installed <- function(pkgs) {
-
+  
   pkgs_not_installed <- 
     pkgs[!(pkgs %in% rownames(installed.packages()))]
   install.packages(pkgs_not_installed,
@@ -80,6 +80,7 @@ load_packages <- function(pkgs) {
 #'
 install_packages_if_needed_and_load <- function(pkgs) {
   
+  if (!(inherits(pkgs, "character"))) stop("this is not a character vector")
   install_packages_not_installed(pkgs)
   load_packages(pkgs)
   
@@ -94,6 +95,10 @@ install_packages_if_needed_and_load(c("rlang", "lobstr"))
 ```{r tests-install_packages_if_needed_and_load}
 test_that("install_packages_if_needed_and_load works", {
   expect_true(inherits(install_packages_if_needed_and_load, "function")) 
+})
+
+test_that("install_packages_if_needed_and_load error", {
+  expect_error(install_packages_if_needed_and_load(c(1,2)), regexp = "this is not a character vector") 
 })
 ```
 
@@ -136,5 +141,6 @@ test_that("pkg_test_internal_functions works", {
 fusen::inflate(flat_file = "dev/flat_packages_management.Rmd",
                overwrite = TRUE,
                clean = TRUE,
+               open_vignette = FALSE,
                vignette_name = "packages_management")
 ```

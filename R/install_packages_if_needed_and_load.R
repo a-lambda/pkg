@@ -16,6 +16,7 @@
 #' install_packages_if_needed_and_load(c("rlang", "lobstr"))
 install_packages_if_needed_and_load <- function(pkgs) {
   
+  if (!(inherits(pkgs, "character"))) stop("this is not a character vector")
   install_packages_not_installed(pkgs)
   load_packages(pkgs)
   

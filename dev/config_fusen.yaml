@@ -13,7 +13,7 @@ flat_packages_management.Rmd:
   inflate:
     flat_file: dev/flat_packages_management.Rmd
     vignette_name: packages_management
-    open_vignette: true
+    open_vignette: false
     check: true
     document: true
     overwrite: 'yes'

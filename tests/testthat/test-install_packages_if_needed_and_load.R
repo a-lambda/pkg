@@ -3,3 +3,7 @@
 test_that("install_packages_if_needed_and_load works", {
   expect_true(inherits(install_packages_if_needed_and_load, "function")) 
 })
+
+test_that("install_packages_if_needed_and_load error", {
+  expect_error(install_packages_if_needed_and_load(c(1,2)), regexp = "this is not a character vector") 
+})

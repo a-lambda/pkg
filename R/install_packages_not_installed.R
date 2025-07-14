@@ -10,7 +10,7 @@
 #' @noRd
 #' @keywords internal
 install_packages_not_installed <- function(pkgs) {
-
+  
   pkgs_not_installed <- 
     pkgs[!(pkgs %in% rownames(installed.packages()))]
   install.packages(pkgs_not_installed,
