@@ -18,8 +18,8 @@ You can install the development version of pkg from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("a-lambda/pkg")
+install.packages("remotes")
+remotes::install_github("a-lambda/pkg")
 ```
 
 ## Documentation
