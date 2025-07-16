@@ -43,13 +43,3 @@ install_packages_if_needed_and_load(c("rlang", "lobstr"))
 
   
 
-# pkg_test_internal_functions
-    
-  
-  
-```{r example-pkg_test_internal_functions}
-pkg_test_internal_functions("lobstr")
-```
-
-  
-  

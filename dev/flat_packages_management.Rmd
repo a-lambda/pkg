@@ -102,38 +102,6 @@ test_that("install_packages_if_needed_and_load error", {
 })
 ```
 
-# pkg_test_internal_functions
-    
-```{r development-pkg_test_internal_functions}
-# You can prepare the code of the pkg_test_internal_functions() function here
-```
-  
-```{r function-pkg_test_internal_functions}
-#' Test d'usage des fonctions internes
-#' 
-#' Teste l'usage des fonctions internes définies dans le chunk de définition de la fonction install_packages_if_needed and load
-#' 
-#' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
-#'
-#' @return invisible NULL.
-#' 
-#' @export
-#' 
-pkg_test_internal_functions <- function(pkgs){
-    load_packages(pkgs)
-}
-```
-  
-```{r example-pkg_test_internal_functions}
-pkg_test_internal_functions("lobstr")
-```
-  
-```{r tests-pkg_test_internal_functions}
-test_that("pkg_test_internal_functions works", {
-  expect_true(inherits(pkg_test_internal_functions, "function")) 
-})
-```
-  
 
 ```{r development-inflate, eval=FALSE}
 # Run but keep eval=FALSE to avoid infinite loop
