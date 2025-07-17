@@ -5,6 +5,8 @@ Authors@R:
     person("Alain", "Corvisier", , "alain.corvisier@pronton.me", role = c("aut", "cre"))
 Description: Useful functions to play for managing packages.
 License: MIT + file LICENSE
+Depends: 
+    R (>= 3.5)
 Imports: 
     utils
 Suggests: 
@@ -15,5 +17,6 @@ VignetteBuilder:
     knitr
 Config/fusen/version: 0.7.1
 Encoding: UTF-8
+LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2

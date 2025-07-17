@@ -138,3 +138,12 @@ covr::package_coverage()
 covr::report()
 ```
 
+### Insert data
+
+```{r}
+usethis::use_data_raw("pkg_example")
+checkhelper::use_data_doc("pkg_example")
+rstudioapi::navigateToFile("R/doc_pkg_example.R")
+attachment::att_amend_desc()
+```
+
