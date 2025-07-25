@@ -20,7 +20,7 @@ pkgload::load_all(export_all = FALSE)
 
 # install_packages_not_installed (internal)
     
-```{r function-install_packages_not_installed}
+```{r function-install_packages_not_installed, filename="install_packages_if_needed_and_load"}
 #' Install packages not installed if needed
 #'
 #' Install all the packages which are not installed.
@@ -42,7 +42,7 @@ install_packages_not_installed <- function(pkgs) {
 
 # load_packages (internal)
     
-```{r function-load_packages}
+```{r function-load_packages, filename="install_packages_if_needed_and_load"}
 #' Load packages
 #' 
 #' Load all the packages
@@ -65,7 +65,7 @@ load_packages <- function(pkgs) {
 # You can prepare the code of the install_packages_if_needed_and_load() function here
 ```
 
-```{r function-install_packages_if_needed_and_load}
+```{r function-install_packages_if_needed_and_load, filename="install_packages_if_needed_and_load"}
 
 #' Install package if needed and load
 #' 
@@ -106,9 +106,11 @@ test_that("install_packages_if_needed_and_load error", {
 ```{r development-inflate, eval=FALSE}
 # Run but keep eval=FALSE to avoid infinite loop
 # Execute in the console directly
-fusen::inflate(flat_file = "dev/flat_packages_management.Rmd",
-               overwrite = TRUE,
-               clean = TRUE,
-               open_vignette = FALSE,
-               vignette_name = "packages_management")
+fusen::inflate(
+  flat_file = "dev/flat_packages_management.Rmd",
+  overwrite = TRUE,
+  clean = TRUE,
+  open_vignette = FALSE,
+  vignette_name = NA
+)
 ```

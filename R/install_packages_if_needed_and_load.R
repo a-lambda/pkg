@@ -22,3 +22,35 @@ install_packages_if_needed_and_load <- function(pkgs) {
   
 }
 
+
+#' Install packages not installed if needed
+#'
+#' Install all the packages which are not installed.
+#' 
+#' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
+#' @return nothing
+#' 
+#' @noRd
+#' @keywords internal
+install_packages_not_installed <- function(pkgs) {
+  
+  pkgs_not_installed <- 
+    pkgs[!(pkgs %in% rownames(installed.packages()))]
+  install.packages(pkgs_not_installed,
+                   repos = "https://mirror.ibcp.fr/pub/CRAN/")
+
+}
+
+#' Load packages
+#' 
+#' Load all the packages
+#' @param pkgs character vector of the names of packages whose current versions should be downloaded from the repositories.
+#' 
+#' @return nothing
+#' @noRd
+#' @keywords internal
+load_packages <- function(pkgs) {
+
+  invisible(lapply(pkgs, FUN = library, character.only = TRUE))
+
+}
